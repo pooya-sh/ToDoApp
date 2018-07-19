@@ -14,8 +14,18 @@ $("form").submit(function(e){
 
 render(myItems);
 
+$('#list').on('click', '.delete', function(){
+    let pos = $(this).closest('li').attr('data-pos'); 
+    myItems.splice(pos,1);
+    render(myItems);
+
+
+});
+
+
 function render (myItems) {
-    for(let i = 0; i < myItems.length; i++) {
+    $("ul").empty();
+        for(let i = 0; i < myItems.length; i++) {
         let itemHTML = `
   <li data-pos="${i}" class="${myItems[i].done ? 'done' : ''}">
     <span class="toggle">${myItems[i].text}</span>

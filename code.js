@@ -2,6 +2,16 @@ let myItems = [
     {text: "test", done:false} 
 ];
 
+$("form").submit(function(e){
+    // code to add element in here
+    e.preventDefault();
+    let fieldValue = $("#field").val();
+    myItems.push({text:fieldValue, done:false});
+    render(myItems);
+    
+  });
+
+
 render(myItems);
 
 function render (myItems) {

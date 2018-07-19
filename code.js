@@ -32,7 +32,18 @@ $('#list').on('click', '.toggle', function(){
     render(myItems);
 });
 
+$('#clear').on('click', function(){
+    let newMyItem = [];
+    for (let item of myItems) {
+        if (item.done === false) {
+            newMyItem.push(item);
+        }
+    }
+    myItems = newMyItem;
+    render(myItems);
+} );
 
+//{text: item.text, done: item.done}
 
 function render (myItems) {
     $("ul").empty();

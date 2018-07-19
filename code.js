@@ -22,6 +22,17 @@ $('#list').on('click', '.delete', function(){
 
 });
 
+$('#list').on('click', '.toggle', function(){
+    let pos = $(this).closest('li').attr('data-pos');
+    if (myItems[pos].done) {
+        myItems[pos].done = false;
+    } else {
+        myItems[pos].done = true;
+    }
+    render(myItems);
+});
+
+
 
 function render (myItems) {
     $("ul").empty();
